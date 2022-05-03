@@ -19,17 +19,6 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
-  margin-top: 30px;
-  width: 150px;
-  height: 50px;
-  font-size: 18px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: #abc594;
-  color: white;
-`;
 function Main() {
   return (
     <Container>
