@@ -8,14 +8,19 @@ const Container = styled.div`
   text-align: center;
   background-color: rgb(51, 55, 54, 0.9);
   border: 3px solid yellow;
-  border-top: 40px solid yellow;
   @media screen and (max-width: 900px) {
     width: 70vw;
     height: 55vh;
   }
 `;
+const Top = styled.div`
+  width: 43vw;
+  height: 40px;
+  background-color: yellow;
+`;
+
 const Exit = styled.div`
-  color: white;
+  color: black;
   font-size: 25px;
   margin-right: 15px;
   text-align: right;
@@ -88,7 +93,9 @@ const Text = styled.textarea`
 function Decrpyt() {
   return (
     <Container>
-      <Exit>x</Exit>
+      <Top>
+        <Exit>x</Exit>
+      </Top>
       <Title>DECRYPT</Title>
       <Id placeholder="INPUT ID" />
       <Text placeholder="INPUT TEXT" />

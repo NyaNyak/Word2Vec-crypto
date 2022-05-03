@@ -7,7 +7,6 @@ const Container = styled.div`
   text-align: center;
   background-color: rgb(41, 60, 44, 0.8);
   border: 3px solid red;
-  border-top: 40px solid red;
   @media screen and (max-width: 900px) {
     width: 70vw;
     height: 55vh;
@@ -15,12 +14,18 @@ const Container = styled.div`
   }
 `;
 
+const Top = styled.div`
+  width: 43vw;
+  height: 40px;
+  background-color: red;
+`;
+
 const Title = styled.div`
   letter-spacing: 2px;
   font-size: 25pt;
   color: red;
   font-family: "Goldman";
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 const Exit = styled.div`
   color: white;
@@ -73,7 +78,10 @@ const Button = styled.button`
 function Encrypt() {
   return (
     <Container>
-      <Exit>x</Exit>
+      <Top>
+        <Exit>x</Exit>
+      </Top>
+
       <Title>ENCRYPT</Title>
       <Text color="green" placeholder="INPUT TEXT" />
       <Button>ACCESS</Button>
