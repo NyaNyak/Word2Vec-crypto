@@ -30,7 +30,7 @@ const Title = styled.div`
   font-size: 25pt;
   color: yellow;
   font-family: "Goldman";
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 
 const Button = styled.button`
@@ -73,7 +73,7 @@ const Id = styled.input`
 const Text = styled.textarea`
   margin-top: 30px;
   width: 70%;
-  height: 33%;
+  height: 40%;
   overflow: visible;
   text-overflow: ellipsis;
   font-family: "Goldman";
