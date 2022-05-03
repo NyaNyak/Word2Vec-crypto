@@ -18,6 +18,10 @@ const Top = styled.div`
   width: 43vw;
   height: 40px;
   background-color: red;
+  @media screen and (max-width: 900px) {
+    width: 70vw;
+    height: 40px;
+  }
 `;
 
 const Title = styled.div`

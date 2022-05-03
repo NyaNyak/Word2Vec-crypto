@@ -17,6 +17,10 @@ const Top = styled.div`
   width: 43vw;
   height: 40px;
   background-color: yellow;
+  @media screen and (max-width: 900px) {
+    width: 70vw;
+    height: 40px;
+  }
 `;
 
 const Exit = styled.div`
