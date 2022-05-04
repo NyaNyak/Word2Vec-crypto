@@ -98,7 +98,7 @@ function HowTo() {
       <Button onClick={openModal}>How To Use?</Button>
       {modalOpen && (
         <Box ref={el}>
-          <Modal open={modalOpen} close={closeModal} header="Login">
+          <Modal open={modalOpen} close={closeModal} header="⬛️ How To Use">
             <Guide />
           </Modal>
         </Box>

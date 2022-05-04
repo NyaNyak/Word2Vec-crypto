@@ -3,7 +3,7 @@ import "./fonts/font.css";
 
 const Container = styled.div`
   width: 40vw;
-  height: 58vh;
+  height: 55vh;
   text-align: center;
   background-color: rgb(41, 60, 44, 0.8);
   border: 3px solid red;
@@ -59,7 +59,7 @@ const Text = styled.textarea`
 `;
 
 const Button = styled.button`
-  margin-top: 35px;
+  margin-top: 25px;
   width: 300px;
   height: 50px;
   background-color: black;

@@ -1,6 +1,5 @@
 import React from "react";
-import "./css/modal.css";
-import KakaoButton from "../image/kakao_login_medium_wide.png";
+import "./modal.css";
 
 const Modal = (props) => {
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
@@ -19,9 +18,12 @@ const Modal = (props) => {
           </header>
           <main>{props.children}</main>
           <footer>
-            <button className="kakao" onClick={close}>
-              <img src={KakaoButton} alt="KakaoLogin" />
-            </button>
+            <a
+              href="https://github.com/NyaNyak/Word2Vec-crypto"
+              target="_blank"
+            >
+              <button>&gt;Contact Us? ( y / n )</button>
+            </a>
           </footer>
         </section>
       ) : null}
