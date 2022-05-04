@@ -16,13 +16,20 @@ const Container = styled.div`
 const Top = styled.div`
   width: 40vw;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
   background-color: yellow;
   @media screen and (max-width: 900px) {
     width: 65vw;
     height: 40px;
   }
 `;
-
+const Icon = styled.span`
+  color: black;
+  font-size: 25px;
+  margin-left: 15px;
+  text-align: left;
+`;
 const Exit = styled.div`
   color: black;
   font-size: 25px;
@@ -98,6 +105,7 @@ function Decrpyt() {
   return (
     <Container>
       <Top>
+        <Icon>🔓︎</Icon>
         <Exit>x</Exit>
       </Top>
       <Title>DECRYPT</Title>

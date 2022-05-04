@@ -17,6 +17,8 @@ const Container = styled.div`
 const Top = styled.div`
   width: 40vw;
   height: 40px;
+  display: flex;
+  justify-content: space-between;
   background-color: red;
   @media screen and (max-width: 900px) {
     width: 65vw;
@@ -37,7 +39,12 @@ const Exit = styled.div`
   margin-right: 15px;
   text-align: right;
 `;
-
+const Icon = styled.span`
+  color: white;
+  font-size: 25px;
+  margin-left: 15px;
+  text-align: left;
+`;
 const Text = styled.textarea`
   margin-top: 30px;
   width: 70%;
@@ -83,6 +90,7 @@ function Encrypt() {
   return (
     <Container>
       <Top>
+        <Icon>🔒︎</Icon>
         <Exit>x</Exit>
       </Top>
 
