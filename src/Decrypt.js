@@ -3,22 +3,22 @@ import "./fonts/font.css";
 
 const Container = styled.div`
   color: white;
-  width: 43vw;
-  height: 80vh;
+  width: 40vw;
+  height: 70vh;
   text-align: center;
   background-color: rgb(51, 55, 54, 0.9);
   border: 3px solid yellow;
   @media screen and (max-width: 900px) {
-    width: 70vw;
+    width: 65vw;
     height: 55vh;
   }
 `;
 const Top = styled.div`
-  width: 43vw;
+  width: 40vw;
   height: 40px;
   background-color: yellow;
   @media screen and (max-width: 900px) {
-    width: 70vw;
+    width: 65vw;
     height: 40px;
   }
 `;
@@ -38,7 +38,7 @@ const Title = styled.div`
 `;
 
 const Button = styled.button`
-  margin-top: 35px;
+  margin-top: 20px;
   width: 300px;
   height: 50px;
   background-color: black;
@@ -52,7 +52,7 @@ const Button = styled.button`
     background-color: #353535;
   }
   @media screen and (max-width: 900px) {
-    margin-top: 20px;
+    margin-top: 25px;
     width: 250px;
     height: 40px;
   }

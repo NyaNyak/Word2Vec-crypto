@@ -2,24 +2,24 @@ import styled from "styled-components";
 import "./fonts/font.css";
 
 const Container = styled.div`
-  width: 43vw;
-  height: 80vh;
+  width: 40vw;
+  height: 58vh;
   text-align: center;
   background-color: rgb(41, 60, 44, 0.8);
   border: 3px solid red;
   @media screen and (max-width: 900px) {
-    width: 70vw;
+    width: 65vw;
     height: 55vh;
     margin-bottom: 20px;
   }
 `;
 
 const Top = styled.div`
-  width: 43vw;
+  width: 40vw;
   height: 40px;
   background-color: red;
   @media screen and (max-width: 900px) {
-    width: 70vw;
+    width: 65vw;
     height: 40px;
   }
 `;
@@ -41,7 +41,7 @@ const Exit = styled.div`
 const Text = styled.textarea`
   margin-top: 30px;
   width: 70%;
-  height: 50%;
+  height: 45%;
   overflow: visible;
   text-overflow: ellipsis;
   resize: none;
@@ -73,7 +73,7 @@ const Button = styled.button`
     background-color: #353535;
   }
   @media screen and (max-width: 900px) {
-    margin-top: 20px;
+    margin-top: 25px;
     width: 250px;
     height: 40px;
   }

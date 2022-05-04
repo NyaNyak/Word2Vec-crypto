@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import HowToUse from "./HowTo";
 import Encrypt from "./Encrypt";
 import Decrpyt from "./Decrypt";
 
@@ -19,10 +20,19 @@ const Container = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+`;
+
 function Main() {
   return (
     <Container>
-      <Encrypt />
+      <Wrapper>
+        <HowToUse />
+        <Encrypt />
+      </Wrapper>
       <Decrpyt />
     </Container>
   );
