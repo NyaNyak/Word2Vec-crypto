@@ -1,5 +1,4 @@
 from flask import Flask, request
-import random as r
 import data
 
 database = data.Db()
