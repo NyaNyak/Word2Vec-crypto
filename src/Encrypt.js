@@ -95,8 +95,10 @@ function Encrypt() {
       </Top>
 
       <Title>ENCRYPT</Title>
-      <Text color="green" placeholder="INPUT TEXT" />
-      <Button>ACCESS</Button>
+      <form action="http://localhost:5002/encrypt" method="post" target="param">
+        <Text color="green" placeholder="INPUT TEXT" name="en" />
+        <Button type="submit">ACCESS</Button>
+      </form>
     </Container>
   );
 }
