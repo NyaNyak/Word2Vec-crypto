@@ -86,6 +86,9 @@ const Button = styled.button`
   }
 `;
 
+const Form = styled.form`
+  height:55vh;
+`;
 function Encrypt() {
   return (
     <Container>
@@ -95,10 +98,10 @@ function Encrypt() {
       </Top>
 
       <Title>ENCRYPT</Title>
-      <form action="http://localhost:5002/encrypt" method="post" target="param">
+      <Form action="http://localhost:5002/encrypt" method="post" target="param">
         <Text color="green" placeholder="INPUT TEXT" name="en" />
         <Button type="submit">ACCESS</Button>
-      </form>
+      </Form>
     </Container>
   );
 }
