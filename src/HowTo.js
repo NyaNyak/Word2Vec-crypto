@@ -5,28 +5,28 @@ import Modal from "./Modal";
 import Guide from "./Guide";
 
 const Container = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 3vh;
   width: 28vw;
-  height: 10vh;
+  height: 13vh;
   text-align: center;
   background-color: rgb(41, 60, 44, 0.8);
   border: 3px solid red;
   @media screen and (max-width: 900px) {
     width: 45vw;
-    height: 10vh;
+    height: 13vh;
     margin-bottom: 20px;
   }
 `;
 
 const Top = styled.div`
   width: 28vw;
-  height: 35px;
+  height: 5vh;
   background-color: red;
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: 900px) {
     width: 45vw;
-    height: 35px;
+    height: 5vh;
   }
 `;
 
@@ -45,8 +45,8 @@ const Exit = styled.span`
 
 const Button = styled.button`
   margin-top: 5px;
-  width: 300px;
-  height: 50px;
+  width: 25vw;
+  height: 6vh;
   background-color: transparent;
   border: none;
   font-size: 20pt;
@@ -58,9 +58,8 @@ const Button = styled.button`
     color: yellow;
   }
   @media screen and (max-width: 900px) {
-    margin-top: 10px;
-    width: 250px;
-    height: 40px;
+    width: 45vw;
+    height: 6vh;
   }
 `;
 

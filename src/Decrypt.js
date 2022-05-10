@@ -4,24 +4,24 @@ import "./fonts/font.css";
 const Container = styled.div`
   color: white;
   width: 40vw;
-  height: 70vh;
+  height: 76vh;
   text-align: center;
   background-color: rgb(51, 55, 54, 0.9);
   border: 3px solid yellow;
   @media screen and (max-width: 900px) {
     width: 65vw;
-    height: 55vh;
+    height: 65vh;
   }
 `;
 const Top = styled.div`
   width: 40vw;
-  height: 40px;
+  height: 6vh;
   display: flex;
   justify-content: space-between;
   background-color: yellow;
   @media screen and (max-width: 900px) {
     width: 65vw;
-    height: 40px;
+    height: 6vh;
   }
 `;
 const Icon = styled.span`
@@ -41,13 +41,13 @@ const Title = styled.div`
   font-size: 25pt;
   color: yellow;
   font-family: "Goldman";
-  margin-top: 30px;
+  margin-top: 4vh;
 `;
 
 const Button = styled.button`
-  margin-top: 20px;
-  width: 300px;
-  height: 50px;
+  margin-top: 3vh;
+  width: 25vw;
+  height: 6vh;
   background-color: black;
   border: 3px solid yellow;
   font-size: 20pt;
@@ -59,9 +59,9 @@ const Button = styled.button`
     background-color: #353535;
   }
   @media screen and (max-width: 900px) {
-    margin-top: 25px;
-    width: 250px;
-    height: 40px;
+    margin-top: 3vh;
+    width: 50vw;
+    height: 6vh;
   }
 `;
 const Id = styled.input`
@@ -82,9 +82,9 @@ const Id = styled.input`
 `;
 
 const Text = styled.textarea`
-  margin-top: 30px;
+  margin-top: 4vh;
   width: 70%;
-  height: 40%;
+  height: 35%;
   overflow: visible;
   text-overflow: ellipsis;
   font-family: "Goldman";

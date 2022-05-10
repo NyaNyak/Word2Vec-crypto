@@ -3,26 +3,26 @@ import "./fonts/font.css";
 
 const Container = styled.div`
   width: 40vw;
-  height: 55vh;
+  height: 60vh;
   text-align: center;
   background-color: rgb(41, 60, 44, 0.8);
   border: 3px solid red;
   @media screen and (max-width: 900px) {
     width: 65vw;
-    height: 55vh;
-    margin-bottom: 20px;
+    height: 60vh;
+    margin-bottom: 3vh;
   }
 `;
 
 const Top = styled.div`
   width: 40vw;
-  height: 40px;
+  height: 6vh;
   display: flex;
   justify-content: space-between;
   background-color: red;
   @media screen and (max-width: 900px) {
     width: 65vw;
-    height: 40px;
+    height: 6vh;
   }
 `;
 
@@ -31,7 +31,7 @@ const Title = styled.div`
   font-size: 25pt;
   color: red;
   font-family: "Goldman";
-  margin-top: 30px;
+  margin-top: 4vh;
 `;
 const Exit = styled.div`
   color: white;
@@ -46,9 +46,9 @@ const Icon = styled.span`
   text-align: left;
 `;
 const Text = styled.textarea`
-  margin-top: 30px;
+  margin-top: 4vh;
   width: 70%;
-  height: 45%;
+  height: 40%;
   overflow: visible;
   text-overflow: ellipsis;
   resize: none;
@@ -66,9 +66,9 @@ const Text = styled.textarea`
 `;
 
 const Button = styled.button`
-  margin-top: 25px;
-  width: 300px;
-  height: 50px;
+  margin-top: 3vh;
+  width: 25vw;
+  height: 6vh;
   background-color: black;
   border: 3px solid red;
   font-size: 20pt;
@@ -80,14 +80,14 @@ const Button = styled.button`
     background-color: #353535;
   }
   @media screen and (max-width: 900px) {
-    margin-top: 25px;
-    width: 250px;
-    height: 40px;
+    margin-top: 3vh;
+    width: 50vw;
+    height: 6vh;
   }
 `;
 
 const Form = styled.form`
-  height:55vh;
+  height: 55vh;
 `;
 function Encrypt() {
   return (
