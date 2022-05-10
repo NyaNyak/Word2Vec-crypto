@@ -101,6 +101,10 @@ const Text = styled.textarea`
   }
 `;
 
+const Form = styled.form`
+  height: 70vh;
+`;
+
 function Decrpyt() {
   return (
     <Container>
@@ -109,9 +113,11 @@ function Decrpyt() {
         <Exit>x</Exit>
       </Top>
       <Title>DECRYPT</Title>
-      <Id placeholder="INPUT ID" />
-      <Text placeholder="INPUT TEXT" />
-      <Button>ACCESS</Button>
+      <Form action="http://localhost:5002/decrypt" method="post" target="param">
+        <Id placeholder="INPUT ID" name="id" />
+        <Text placeholder="INPUT TEXT" name="de" />
+        <Button type="submit">ACCESS</Button>
+      </Form>
     </Container>
   );
 }
