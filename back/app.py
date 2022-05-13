@@ -1,5 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import data
+
 
 database = data.Db()
 
@@ -15,9 +16,15 @@ def encrypt():
     value = request.form['en']
 
     status, message, id_, string = database.push(value)
-    print(database)
+    
+    data = {
+        "status" : status,
+        "message" : message,
+        "id" : id_,
+        "string" : string
+    }
 
-    return str(status) + " " + message + " " + str(id_) + " " + string
+    return jsonify(data)
 
 @app.route('/decrypt', methods = ['POST'])
 def decrypt():
@@ -26,12 +33,13 @@ def decrypt():
 
     status, message, string = database.pop(id_, value)
 
-    print(database)
+    data = {
+        "status" : status,
+        "message" : message,
+        "string" : string,
+    }
 
-    if status:
-        return message
-    else:
-        return string
+    return jsonify(data)
 
 @app.route('/config')
 def config():
