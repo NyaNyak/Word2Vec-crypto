@@ -3,6 +3,7 @@ import "./App.css";
 import Main from "./Main";
 import React from "react";
 import NotFound from "./NotFound";
+import EResult from "./EResult";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" exact element={<Main />} />
+        <Route path="/encrypted" element={<EResult />} />
         <Route element={<NotFound />} />
       </Routes>
     </Router>

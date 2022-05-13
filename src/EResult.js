@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -67,46 +66,7 @@ const Text = styled.textarea`
   }
 `;
 
-const Button = styled.button`
-  margin-top: 3vh;
-  width: 25vw;
-  height: 6vh;
-  background-color: black;
-  border: 3px solid red;
-  font-size: 20pt;
-  color: red;
-  font-family: "Goldman";
-  outline: none;
-  cursor: pointer;
-  &:active {
-    background-color: #353535;
-  }
-  @media screen and (max-width: 900px) {
-    margin-top: 3vh;
-    width: 50vw;
-    height: 6vh;
-  }
-`;
-
-const Form = styled.form`
-  height: 55vh;
-`;
-function Encrypt() {
-  const [data, setData] = useState([{}]);
-
-  useEffect(() => {
-    fetch("http://localhost:5002/encrypt", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
-  }, []);
+function EResult() {
   return (
     <Container>
       <Top>
@@ -114,18 +74,9 @@ function Encrypt() {
         <Exit>x</Exit>
       </Top>
 
-      <Title>ENCRYPT</Title>
-      <Form action="http://localhost:5002/encrypt" method="post" target="param">
-        <Text color="green" placeholder="INPUT TEXT" name="en" />
-        <a
-          href="/encrypted"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <Button type="submit">ACCESS</Button>
-        </a>
-      </Form>
+      <Title>Result</Title>
     </Container>
   );
 }
 
-export default Encrypt;
+export default EResult;
