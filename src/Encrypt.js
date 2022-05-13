@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -90,6 +91,20 @@ const Form = styled.form`
   height: 55vh;
 `;
 function Encrypt() {
+  const [data, setData] = useState([{}]);
+
+  useEffect(() => {
+    fetch("http://localhost:5002/encrypt", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <Container>
       <Top>
