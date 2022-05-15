@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "./Contexts/Context";
+import { useNavigate } from "react-router-dom";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -42,8 +43,12 @@ const Title = styled.div`
   font-family: "Goldman";
   margin-top: 4vh;
 `;
-const Exit = styled.div`
+const Exit = styled.button`
   color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 4vh;
   font-size: 30px;
   margin-right: 15px;
   text-align: right;
@@ -76,19 +81,22 @@ const Text = styled.textarea`
 `;
 
 function EResult() {
+  const navigate = useNavigate();
   const context = useContext(UserContext);
   const { text, setText } = context;
   const [output, setOutput] = useState("");
   useEffect(() => {
     setOutput(text);
   });
-
+  const onClick = () => {
+    window.location.replace("/");
+  };
   return (
     <Container>
       <Wrapper>
         <Top>
           <Icon>🔒︎</Icon>
-          <Exit>x</Exit>
+          <Exit onClick={onClick}>←</Exit>
         </Top>
 
         <Title>Result</Title>
