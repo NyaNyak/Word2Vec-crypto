@@ -8,13 +8,30 @@ class Db:
         i = r.randint(1, 1000000)
         while i in self.dict:
             i = r.randint(1, 1000000)
-        self.dict[str(i)] = string
-        return 0, "success", str(i), string
+        
+        temp = ""
+        key = r.randint(1, 10)
+        for c in string:
+            if c == " ":
+                temp += " "
+            else:
+                temp += chr((ord(c) + key - 97) % 26 + 97)
+
+        self.dict[str(i)] = [temp, key]
+        return 0, "success", str(i), temp
     
     def pop(self, i, string):
         if i in self.dict:
-            if self.dict[i] == string:
-                return 0, "success", self.dict.pop(i)
+            if self.dict[i][0] == string:
+                temp = ""
+                key = self.dict[i][1]
+                for c in string:
+                    if c == " ":
+                        temp += " "
+                    else:
+                        temp += chr((ord(c) - key - 97) % 26 + 97)
+                self.dict.pop(i)
+                return 0, "success", temp
             else:
                 return 1, "id - string pair is not match", ""
         else:
