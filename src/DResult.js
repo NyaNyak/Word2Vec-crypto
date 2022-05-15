@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   width: 40vw;
   height: 60vh;
   text-align: center;
-  background-color: rgb(41, 60, 44, 0.8);
-  border: 3px solid red;
+  background-color: rgb(51, 55, 54, 0.9);
+  border: 3px solid yellow;
   @media screen and (max-width: 900px) {
     width: 65vw;
     height: 60vh;
@@ -27,7 +27,7 @@ const Top = styled.div`
   height: 6vh;
   display: flex;
   justify-content: space-between;
-  background-color: red;
+  background-color: yellow;
   @media screen and (max-width: 900px) {
     width: 65vw;
     height: 6vh;
@@ -37,29 +37,29 @@ const Top = styled.div`
 const Title = styled.div`
   letter-spacing: 2px;
   font-size: 25pt;
-  color: red;
+  color: yellow;
   font-family: "Goldman";
   margin-top: 4vh;
 `;
 const Exit = styled.div`
-  color: white;
+  color: black;
   font-size: 30px;
   margin-right: 15px;
   text-align: right;
 `;
 const Icon = styled.span`
-  color: white;
+  color: black;
   font-size: 30px;
   margin-left: 15px;
   text-align: left;
 `;
 
-function EResult() {
+function DResult() {
   return (
     <Container>
       <Wrapper>
         <Top>
-          <Icon>🔒︎</Icon>
+          <Icon>🔓︎</Icon>
           <Exit>x</Exit>
         </Top>
 
@@ -69,4 +69,4 @@ function EResult() {
   );
 }
 
-export default EResult;
+export default DResult;
