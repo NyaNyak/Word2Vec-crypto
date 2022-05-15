@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "./Contexts/Context";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -54,7 +55,34 @@ const Icon = styled.span`
   text-align: left;
 `;
 
+const Text = styled.textarea`
+  margin-top: 4vh;
+  width: 70%;
+  height: 40%;
+  overflow: visible;
+  text-overflow: ellipsis;
+  resize: none;
+  border: none;
+  outline: none;
+  font-family: "Goldman";
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 20px 20px 20px 20px;
+  @media screen and (max-width: 900px) {
+    width: 70%;
+    height: 40%;
+  }
+`;
+
 function EResult() {
+  const context = useContext(UserContext);
+  const { text, setText } = context;
+  const [output, setOutput] = useState("");
+  useEffect(() => {
+    setOutput(text);
+  });
+
   return (
     <Container>
       <Wrapper>
@@ -64,6 +92,7 @@ function EResult() {
         </Top>
 
         <Title>Result</Title>
+        <Text value={output} readonly />
       </Wrapper>
     </Container>
   );

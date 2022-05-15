@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "./Contexts/Context";
 import { Link } from "react-router-dom";
 import "./fonts/font.css";
 
@@ -92,8 +94,25 @@ const Form = styled.form`
   height: 55vh;
 `;
 function Encrypt() {
-  const [data, setData] = useState([{}]);
+  const navigate = useNavigate();
 
+  //const [data, setData] = useState([{}]);
+  const context = useContext(UserContext);
+  const { text, setText } = context;
+
+  const onClick = () => {
+    if ({ text } == "") {
+      window.alert("텍스트를 입력하세요.");
+    } else {
+      navigate("/encrypted");
+    }
+  };
+
+  const onContentChange = (event) => {
+    setText(event.currentTarget.value);
+  };
+  console.log(text);
+  /*
   useEffect(() => {
     fetch("http://localhost:5002/encrypt", {
       method: "POST",
@@ -107,6 +126,7 @@ function Encrypt() {
         console.log(data);
       });
   }, []);
+  */
   return (
     <Container>
       <Top>
@@ -115,15 +135,16 @@ function Encrypt() {
       </Top>
 
       <Title>ENCRYPT</Title>
-      <Form action="http://localhost:5002/encrypt" method="post" target="param">
-        <Text color="green" placeholder="INPUT TEXT" name="en" />
-        <a
-          href="/encrypted"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <Button type="submit">ACCESS</Button>
-        </a>
-      </Form>
+
+      <Text
+        color="green"
+        placeholder="INPUT TEXT"
+        name="en"
+        value={text}
+        onChange={onContentChange}
+      />
+
+      <Button onClick={onClick}>ACCESS</Button>
     </Container>
   );
 }
