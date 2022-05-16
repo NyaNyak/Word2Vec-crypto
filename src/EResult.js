@@ -84,10 +84,8 @@ function EResult() {
   const navigate = useNavigate();
   const context = useContext(UserContext);
   const { text, setText } = context;
-  const [output, setOutput] = useState("");
-  useEffect(() => {
-    setOutput(text);
-  });
+  const { output, setOutput } = context;
+
   const onClick = () => {
     window.location.replace("/");
   };

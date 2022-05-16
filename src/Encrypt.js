@@ -52,7 +52,7 @@ const Icon = styled.span`
 const Text = styled.textarea`
   margin-top: 4vh;
   width: 70%;
-  height: 40%;
+  height: 35%;
   overflow: visible;
   text-overflow: ellipsis;
   resize: none;
@@ -65,7 +65,7 @@ const Text = styled.textarea`
   padding: 20px 20px 20px 20px;
   @media screen and (max-width: 900px) {
     width: 70%;
-    height: 40%;
+    height: 35%;
   }
 `;
 
@@ -95,15 +95,24 @@ const Form = styled.form`
 `;
 function Encrypt() {
   const navigate = useNavigate();
-
+  const kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  const invalid = /[0-9!?@#$%^&*():;+-=~{}<>\_\[\]\|\\\"\'\,\.\/\`\₩]/g;
   //const [data, setData] = useState([{}]);
   const context = useContext(UserContext);
   const { text, setText } = context;
+  const { output, setOutput } = context;
 
   const onClick = () => {
-    if ({ text } == "") {
+    if (text == "") {
       window.alert("텍스트를 입력하세요.");
+    } else if (kor.test(text)) {
+      window.alert("영문으로 입력해주세요.");
+      setOutput("");
+    } else if (invalid.test(text)) {
+      window.alert("특수문자와 숫자를 제외하고 입력해주세요.");
+      setOutput("");
     } else {
+      setOutput(text);
       navigate("/encrypted");
     }
   };
@@ -112,6 +121,9 @@ function Encrypt() {
     setText(event.currentTarget.value);
   };
   console.log(text);
+  console.log(output);
+  console.log(kor.test(text));
+
   /*
   useEffect(() => {
     fetch("http://localhost:5002/encrypt", {
