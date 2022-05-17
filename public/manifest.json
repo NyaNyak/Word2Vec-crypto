@@ -18,6 +18,10 @@
       "sizes": "512x512"
     }
   ],
+  "permissions": [
+    "http://localhost:5002/*",
+    "http://localhost:3000/encrypted:1/5002/*"
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

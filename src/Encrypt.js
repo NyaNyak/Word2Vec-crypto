@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./Contexts/Context";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -93,6 +94,9 @@ const Button = styled.button`
 const Form = styled.form`
   height: 55vh;
 `;
+
+axios.defaults.withCredentials = true;
+
 function Encrypt() {
   const navigate = useNavigate();
   const kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
@@ -102,18 +106,27 @@ function Encrypt() {
   const { text, setText } = context;
   const { output, setOutput } = context;
 
-  const onClick = () => {
-    if (text == "") {
-      window.alert("텍스트를 입력하세요.");
-    } else if (kor.test(text)) {
-      window.alert("영문으로 입력해주세요.");
-      setOutput("");
-    } else if (invalid.test(text)) {
-      window.alert("특수문자와 숫자를 제외하고 입력해주세요.");
-      setOutput("");
-    } else {
-      setOutput(text);
-      navigate("/encrypted");
+  const onClick = (event) => {
+    try {
+      event.preventDefault();
+      if (text == "") {
+        window.alert("텍스트를 입력하세요.");
+      } else if (kor.test(text)) {
+        window.alert("영문으로 입력해주세요.");
+        setOutput("");
+      } else if (invalid.test(text)) {
+        window.alert("특수문자와 숫자를 제외하고 입력해주세요.");
+        setOutput("");
+      } else {
+        setOutput(text);
+        axios.post("http://localhost:5002/encrypt", { output }).then((res) => {
+          console.log(res);
+          console.log(res.data);
+        });
+        navigate("/encrypted");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -147,16 +160,22 @@ function Encrypt() {
       </Top>
 
       <Title>ENCRYPT</Title>
+      <Form
+        /*action="http://localhost:5002/encrypt"
+        method="post"
+        target="param"*/
+        onSubmit={onClick}
+      >
+        <Text
+          color="green"
+          placeholder="INPUT TEXT"
+          name="en"
+          value={text}
+          onChange={onContentChange}
+        />
 
-      <Text
-        color="green"
-        placeholder="INPUT TEXT"
-        name="en"
-        value={text}
-        onChange={onContentChange}
-      />
-
-      <Button onClick={onClick}>ACCESS</Button>
+        <Button type="submit">ACCESS</Button>
+      </Form>
     </Container>
   );
 }

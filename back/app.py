@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify, make_response, current_app
 from datetime import timedelta
 from functools import update_wrapper
+from flask_cors import CORS, cross_origin
 import data
-
 
 # https://pyeongho.github.io/flaskcross 
 
@@ -51,6 +51,9 @@ def crossdomain(origin=None, methods=None, headers=None,
 database = data.Db()
 
 app = Flask(__name__)
+CORS(app, send_wildcard=True, supports_credentials=True)
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.url_map.strict_slashes = False
 
 @app.route('/')
 @crossdomain(origin='*')
