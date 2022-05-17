@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify, make_response, current_app
+from flask import Flask, request, jsonify
+import json
 from flask_cors import CORS
 import data
 
@@ -15,9 +16,9 @@ def start():
 
 @app.route('/encrypt', methods = ['POST'])
 def encrypt():
-    value = request.form['en']
+    temp = json.loads(request.get_data())
 
-    status, message, id_, string = database.push(value)
+    status, message, id_, string = database.push(temp["text"])
     
     data = {
         "status" : status,
@@ -25,10 +26,12 @@ def encrypt():
         "id" : id_,
         "string" : string
     }
-    res = jsonify(data)
-    res.headers.add('Access-Control-Allow-Origin', '*')
 
-    return res
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+
+    return response
 
 @app.route('/decrypt', methods = ['POST'])
 def decrypt():
@@ -42,6 +45,7 @@ def decrypt():
         "message" : message,
         "string" : string,
     }
+
 
     return jsonify(data)
 

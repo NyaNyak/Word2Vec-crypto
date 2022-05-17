@@ -87,7 +87,7 @@ function EResult() {
   const { text, setText } = context;
   const { output, setOutput } = context;
 
-  useEffect(
+  useEffect(() => {
     axios({
       headers: {
         "Content-Type": `application/json`,
@@ -95,16 +95,16 @@ function EResult() {
       url: "http://127.0.0.1:5002/encrypt",
       method: "post",
       data: {
-        en: text,
+        text: text,
       },
       proxy: {
         host: "https://cors-ufshg.herokuapp.com",
         port: 443,
       },
-    }).then(function (res) {
-      console.log(res);
-    })
-  );
+    }).then(function (response) {
+      console.log(response);
+    });
+  }, []);
 
   const onClick = () => {
     window.location.replace("/");
