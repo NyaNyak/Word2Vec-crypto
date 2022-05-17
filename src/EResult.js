@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "./Contexts/Context";
 import { useNavigate } from "react-router-dom";
 import "./fonts/font.css";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -85,6 +86,25 @@ function EResult() {
   const context = useContext(UserContext);
   const { text, setText } = context;
   const { output, setOutput } = context;
+
+  useEffect(
+    axios({
+      headers: {
+        "Content-Type": `application/json`,
+      },
+      url: "http://127.0.0.1:5002/encrypt",
+      method: "post",
+      data: {
+        en: text,
+      },
+      proxy: {
+        host: "https://cors-ufshg.herokuapp.com",
+        port: 443,
+      },
+    }).then(function (res) {
+      console.log(res);
+    })
+  );
 
   const onClick = () => {
     window.location.replace("/");

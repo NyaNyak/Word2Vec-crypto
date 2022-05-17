@@ -119,10 +119,6 @@ function Encrypt() {
         setOutput("");
       } else {
         setOutput(text);
-        axios.post("http://localhost:5002/encrypt", { output }).then((res) => {
-          console.log(res);
-          console.log(res.data);
-        });
         navigate("/encrypted");
       }
     } catch (error) {
