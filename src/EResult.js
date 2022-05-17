@@ -64,7 +64,7 @@ const Icon = styled.span`
 const Text = styled.textarea`
   margin-top: 4vh;
   width: 70%;
-  height: 40%;
+  height: 35%;
   overflow: visible;
   text-overflow: ellipsis;
   resize: none;
@@ -77,7 +77,26 @@ const Text = styled.textarea`
   padding: 20px 20px 20px 20px;
   @media screen and (max-width: 900px) {
     width: 70%;
-    height: 40%;
+    height: 35%;
+  }
+`;
+const ID = styled.input`
+  margin-top: 2vh;
+  width: 70%;
+  height: 3%;
+  overflow: visible;
+  text-overflow: ellipsis;
+  resize: none;
+  border: none;
+  outline: none;
+  font-family: "Goldman";
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 20px 20px 20px 20px;
+  @media screen and (max-width: 900px) {
+    width: 70%;
+    height: 3%;
   }
 `;
 
@@ -86,6 +105,7 @@ function EResult() {
   const context = useContext(UserContext);
   const { text, setText } = context;
   const { output, setOutput } = context;
+  const { id, setId } = context;
 
   useEffect(() => {
     axios({
@@ -102,6 +122,8 @@ function EResult() {
         port: 443,
       },
     }).then(function (response) {
+      setOutput(response.data.string);
+      setId(response.data.id);
       console.log(response);
     });
   }, []);
@@ -118,6 +140,7 @@ function EResult() {
         </Top>
 
         <Title>Result</Title>
+        <ID value={id} readonly />
         <Text value={output} readonly />
       </Wrapper>
     </Container>

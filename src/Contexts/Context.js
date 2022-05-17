@@ -6,6 +6,7 @@ export const UserContext = createContext();
 function UserStore(props) {
   const [text, setText] = useState("");
   const [output, setOutput] = useState("");
+  const [id, setId] = useState("");
   return (
     <UserContext.Provider
       value={{
@@ -13,6 +14,8 @@ function UserStore(props) {
         setText,
         output,
         setOutput,
+        id,
+        setId,
       }}
     >
       {props.children}
