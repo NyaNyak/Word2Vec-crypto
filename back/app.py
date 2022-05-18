@@ -35,10 +35,11 @@ def encrypt():
 
 @app.route('/decrypt', methods = ['POST'])
 def decrypt():
-    id_ = request.form['id']
-    value = request.form['de']
+    temp = json.loadas(request.get_data())
+    id_ = temp["id"]
+    string = temp["de"]
 
-    status, message, string = database.pop(id_, value)
+    status, message, string = database.pop(id_, string)
 
     data = {
         "status" : status,
@@ -46,8 +47,11 @@ def decrypt():
         "string" : string,
     }
 
+    response = jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
 
-    return jsonify(data)
+    return response
 
 @app.route('/config')
 def config():

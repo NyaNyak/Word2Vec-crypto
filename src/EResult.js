@@ -118,7 +118,7 @@ function EResult() {
         text: text,
       },
       proxy: {
-        host: "https://cors-ufshg.herokuapp.com",
+        host: "http://127.0.0.1:5002",
         port: 443,
       },
     }).then(function (response) {
