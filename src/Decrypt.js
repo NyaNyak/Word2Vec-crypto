@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "./Contexts/Context";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -106,6 +109,45 @@ const Form = styled.form`
 `;
 
 function Decrpyt() {
+  const navigate = useNavigate();
+  const kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  const invalid = /[0-9!?@#$%^&*():;+-=~{}<>\_\[\]\|\\\"\'\,\.\/\`\₩]/g;
+  const num = /[0-9]/;
+  const context = useContext(UserContext);
+  const { text2, setText2 } = context;
+  const { output, setOutput } = context;
+  const { id, setId } = context;
+  const onClick = (event) => {
+    try {
+      event.preventDefault();
+      if (text2 == "" || id == "") {
+        window.alert("아이디 또는 텍스트를 입력하세요.");
+      } else if (kor.test(text2)) {
+        window.alert("텍스트는 영문으로 입력해주세요.");
+        setOutput("");
+        if (!num.test(id)) {
+          window.alert("아이디는 숫자로 입력해주세요.");
+        }
+      } else if (invalid.test(text2)) {
+        window.alert("텍스트는 특수문자와 숫자를 제외하고 입력해주세요.");
+        setOutput("");
+        if (!num.test(id)) {
+          window.alert("아이디는 숫자로 입력해주세요.");
+        }
+      } else {
+        setOutput(text2);
+        navigate("/decrypted");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const onIdChange = (event) => {
+    setId(event.currentTarget.value);
+  };
+  const onContentChange = (event) => {
+    setText2(event.currentTarget.value);
+  };
   return (
     <Container>
       <Top>
@@ -113,9 +155,15 @@ function Decrpyt() {
         <Exit>x</Exit>
       </Top>
       <Title>DECRYPT</Title>
-      <Form action="http://localhost:5002/decrypt" method="post" target="param">
-        <Id placeholder="INPUT ID" name="id" />
-        <Text placeholder="INPUT TEXT" name="de" />
+      <Form onSubmit={onClick}>
+        <Id placeholder="INPUT ID" value={id} name="id" onChange={onIdChange} />
+        <Text
+          placeholder="INPUT TEXT"
+          value={text2}
+          name="de"
+          id="dec"
+          onChange={onContentChange}
+        />
         <Button type="submit">ACCESS</Button>
       </Form>
     </Container>

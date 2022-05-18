@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "./Contexts/Context";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -79,6 +82,32 @@ const Text = styled.textarea`
 `;
 
 function DResult() {
+  const context = useContext(UserContext);
+  const { text, setText } = context;
+  const { text2, setText2 } = context;
+  const { output, setOutput } = context;
+  const { id, setId } = context;
+  useEffect(() => {
+    axios({
+      headers: {
+        "Content-Type": `application/json`,
+      },
+      url: "http://127.0.0.1:5002/decrypt",
+      method: "post",
+      data: {
+        id: id,
+        de: text2,
+      },
+      proxy: {
+        host: "http://127.0.0.1:5002",
+        port: 443,
+      },
+    }).then(function (response) {
+      setOutput(response.data.string);
+      console.log(response);
+    });
+  }, []);
+
   const onClick = () => {
     window.location.replace("/");
   };
@@ -91,7 +120,7 @@ function DResult() {
         </Top>
 
         <Title>Result</Title>
-        <Text readonly />
+        <Text value={output} readonly />
       </Wrapper>
     </Container>
   );

@@ -35,7 +35,7 @@ def encrypt():
 
 @app.route('/decrypt', methods = ['POST'])
 def decrypt():
-    temp = json.loadas(request.get_data())
+    temp = json.loads(request.get_data())
     id_ = temp["id"]
     string = temp["de"]
 

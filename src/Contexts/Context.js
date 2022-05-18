@@ -5,13 +5,17 @@ export const UserContext = createContext();
 
 function UserStore(props) {
   const [text, setText] = useState("");
+  const [text2, setText2] = useState("");
   const [output, setOutput] = useState("");
   const [id, setId] = useState("");
+
   return (
     <UserContext.Provider
       value={{
         text,
         setText,
+        text2,
+        setText2,
         output,
         setOutput,
         id,
