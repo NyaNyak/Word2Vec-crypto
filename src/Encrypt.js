@@ -105,6 +105,7 @@ function Encrypt() {
   const context = useContext(UserContext);
   const { text, setText } = context;
   const { output, setOutput } = context;
+  const { id, setId } = context;
 
   const onClick = (event) => {
     try {
@@ -119,6 +120,24 @@ function Encrypt() {
         setOutput("");
       } else {
         setOutput(text);
+        axios({
+          headers: {
+            "Content-Type": `application/json`,
+          },
+          url: "http://127.0.0.1:5002/encrypt",
+          method: "post",
+          data: {
+            text: text,
+          },
+          proxy: {
+            host: "http://127.0.0.1:5002",
+            port: 443,
+          },
+        }).then(function (response) {
+          setOutput(response.data.string);
+          setId(response.data.id);
+          console.log(response);
+        });
         navigate("/encrypted");
       }
     } catch (error) {

@@ -87,6 +87,7 @@ function DResult() {
   const { text2, setText2 } = context;
   const { output, setOutput } = context;
   const { id, setId } = context;
+  /*
   useEffect(() => {
     axios({
       headers: {
@@ -107,7 +108,7 @@ function DResult() {
       console.log(response);
     });
   }, []);
-
+*/
   const onClick = () => {
     window.location.replace("/");
   };

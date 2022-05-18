@@ -106,7 +106,7 @@ function EResult() {
   const { text, setText } = context;
   const { output, setOutput } = context;
   const { id, setId } = context;
-
+  /*
   useEffect(() => {
     axios({
       headers: {
@@ -127,7 +127,7 @@ function EResult() {
       console.log(response);
     });
   }, []);
-
+*/
   const onClick = () => {
     window.location.replace("/");
   };

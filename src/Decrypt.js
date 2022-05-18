@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./Contexts/Context";
+import axios from "axios";
 import "./fonts/font.css";
 
 const Container = styled.div`
@@ -135,7 +136,24 @@ function Decrpyt() {
           window.alert("아이디는 숫자로 입력해주세요.");
         }
       } else {
-        setOutput(text2);
+        axios({
+          headers: {
+            "Content-Type": `application/json`,
+          },
+          url: "http://127.0.0.1:5002/decrypt",
+          method: "post",
+          data: {
+            id: id,
+            de: text2,
+          },
+          proxy: {
+            host: "http://127.0.0.1:5002",
+            port: 443,
+          },
+        }).then(function (response) {
+          setOutput(response.data.string);
+          console.log(response);
+        });
         navigate("/decrypted");
       }
     } catch (error) {
