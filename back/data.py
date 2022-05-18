@@ -33,9 +33,9 @@ class Db:
                 self.dict.pop(i)
                 return 0, "success", temp
             else:
-                return 1, "id - string pair is not match", ""
+                return 1, "유효하지 않은 key - value pair입니다.", ""
         else:
-            return 1, "invalid id value", ""
+            return 1, "존재하지 않는 key값입니다.", ""
     
     def config(self):
         return len(self.dict)
