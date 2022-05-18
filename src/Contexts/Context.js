@@ -8,6 +8,7 @@ function UserStore(props) {
   const [text2, setText2] = useState("");
   const [output, setOutput] = useState("");
   const [id, setId] = useState("");
+  const [state, setState] = useState("");
 
   return (
     <UserContext.Provider
@@ -20,6 +21,8 @@ function UserStore(props) {
         setOutput,
         id,
         setId,
+        state,
+        setState,
       }}
     >
       {props.children}

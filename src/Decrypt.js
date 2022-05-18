@@ -118,6 +118,7 @@ function Decrpyt() {
   const { text2, setText2 } = context;
   const { output, setOutput } = context;
   const { id, setId } = context;
+  const { state, setState } = context;
   const onClick = (event) => {
     try {
       event.preventDefault();
@@ -151,8 +152,12 @@ function Decrpyt() {
             port: 443,
           },
         }).then(function (response) {
-          setOutput(response.data.string);
-          console.log(response);
+          if (response.data.status == 1) {
+            setOutput(response.data.message);
+          } else {
+            setOutput(response.data.string);
+            console.log(response);
+          }
         });
         navigate("/decrypted");
       }
