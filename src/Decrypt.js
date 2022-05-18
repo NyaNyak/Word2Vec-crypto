@@ -122,18 +122,18 @@ function Decrpyt() {
     try {
       event.preventDefault();
       if (text2 == "" || id == "") {
-        window.alert("아이디 또는 텍스트를 입력하세요.");
+        window.alert("Key 또는 텍스트를 입력하세요.");
       } else if (kor.test(text2)) {
         window.alert("텍스트는 영문으로 입력해주세요.");
         setOutput("");
         if (!num.test(id)) {
-          window.alert("아이디는 숫자로 입력해주세요.");
+          window.alert("Key는 숫자로 입력해주세요.");
         }
       } else if (invalid.test(text2)) {
         window.alert("텍스트는 특수문자와 숫자를 제외하고 입력해주세요.");
         setOutput("");
         if (!num.test(id)) {
-          window.alert("아이디는 숫자로 입력해주세요.");
+          window.alert("Key는 숫자로 입력해주세요.");
         }
       } else {
         axios({
@@ -174,7 +174,12 @@ function Decrpyt() {
       </Top>
       <Title>DECRYPT</Title>
       <Form onSubmit={onClick}>
-        <Id placeholder="INPUT ID" value={id} name="id" onChange={onIdChange} />
+        <Id
+          placeholder="INPUT KEY"
+          value={id}
+          name="id"
+          onChange={onIdChange}
+        />
         <Text
           placeholder="INPUT TEXT"
           value={text2}
