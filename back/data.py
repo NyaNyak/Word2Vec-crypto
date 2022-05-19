@@ -1,4 +1,5 @@
 import random as r
+import re
 from crypt import crypt
 class Db:
     def __init__(self):
@@ -16,12 +17,20 @@ class Db:
 
         for j in range(l):
             key_r = r.randint(-5, 5)
+            while not key_r:
+                key_r = r.randint(-5, 5)
             save_key = key[j] + key_r
             if not save_key:
                 save_key += key_r
             keybag.append(save_key)
             for c in string[j]:
-                temp += chr((ord(c) + save_key - 97) % 26 + 97)
+                if re.match("[a-z]", c):
+                    temp += chr((ord(c) + save_key - 97) % 26 + 97)
+                elif re.match("[A-Z]", c):
+                    temp += chr((ord(c) + save_key - 65) % 26 + 65)
+                else:
+                    temp += c
+
             if j != l - 1:
                 temp += " "
 
@@ -38,7 +47,12 @@ class Db:
                 for j in range(l):
                     key = keybag[j]
                     for c in string[j]:
-                        temp += chr((ord(c) - key - 97) % 26 + 97)
+                        if re.match("[a-z]", c):
+                            temp += chr((ord(c) - key - 97) % 26 + 97)
+                        elif re.match("[A-Z]", c):
+                            temp += chr((ord(c) - key - 65) % 26 + 65)
+                        else:
+                            temp += c
                     if j != l:
                         temp += " "
 
