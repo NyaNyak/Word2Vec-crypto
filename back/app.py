@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 from flask_cors import CORS
 import data
+import os
 
 
 database = data.Db()
@@ -58,4 +59,5 @@ def config():
     return str(database.config())
 
 if __name__ == "__main__":
-    app.run(port=5002)
+    port = int(os.environ.get('PORT', 5002))
+    app.run(host='0.0.0.0', port=port)
