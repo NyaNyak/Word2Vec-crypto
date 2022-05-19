@@ -1,5 +1,5 @@
 import random as r
-
+from crypt import crypt
 class Db:
     def __init__(self):
         self.dict = {}
@@ -10,26 +10,38 @@ class Db:
             i = r.randint(1, 1000000)
         
         temp = ""
-        key = r.randint(1, 10)
-        for c in string:
-            if c == " ":
-                temp += " "
-            else:
-                temp += chr((ord(c) + key - 97) % 26 + 97)
+        key, l = crypt(string)
+        keybag = []
+        string = string.split()
 
-        self.dict[str(i)] = [temp, key]
+        for j in range(l):
+            key_r = r.randint(-5, 5)
+            save_key = key[j] + key_r
+            if not save_key:
+                save_key += key_r
+            keybag.append(save_key)
+            for c in string[j]:
+                temp += chr((ord(c) + save_key - 97) % 26 + 97)
+            if j != l - 1:
+                temp += " "
+
+        self.dict[str(i)] = [temp, keybag, l]
         return 0, "success", str(i), temp
     
     def pop(self, i, string):
         if i in self.dict:
             if self.dict[i][0] == string:
                 temp = ""
-                key = self.dict[i][1]
-                for c in string:
-                    if c == " ":
-                        temp += " "
-                    else:
+                keybag, l = self.dict[i][1], self.dict[i][2]
+                string = string.split()
+
+                for j in range(l):
+                    key = keybag[j]
+                    for c in string[j]:
                         temp += chr((ord(c) - key - 97) % 26 + 97)
+                    if j != l:
+                        temp += " "
+
                 self.dict.pop(i)
                 return 0, "success", temp
             else:

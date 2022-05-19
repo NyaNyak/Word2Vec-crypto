@@ -119,7 +119,7 @@ function Encrypt() {
         window.alert("특수문자와 숫자를 제외하고 입력해주세요.");
         setOutput("");
       } else {
-        setOutput(text);
+        setOutput("loading...");
         axios({
           headers: {
             "Content-Type": `application/json`,
