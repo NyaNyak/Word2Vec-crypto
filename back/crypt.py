@@ -2,7 +2,7 @@ import spacy
 import random as r
 from sklearn.metrics.pairwise import cosine_similarity as f
 
-# spacy.cli.download('en_core_web_lg')
+spacy.cli.download('en_core_web_lg')
 
 def crypt(string):
     nlp = spacy.load('en_core_web_lg')
