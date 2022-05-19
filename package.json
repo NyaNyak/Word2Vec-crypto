@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-prebuild": "npm install --dev",
-    "heroku-postbuild": "cd word2vec-crypto && npm install && npm install webpack-cli --dev && npm run build"
+    "heroku-postbuild": "concurrently \"python3 ./back/app.py\" \"react-scripts start\""
   },
   "eslintConfig": {
     "extends": [
