@@ -130,12 +130,6 @@ function Decrpyt() {
         if (!num.test(id)) {
           window.alert("Key는 숫자로 입력해주세요.");
         }
-      } else if (invalid.test(text2)) {
-        window.alert("텍스트는 특수문자와 숫자를 제외하고 입력해주세요.");
-        setOutput("");
-        if (!num.test(id)) {
-          window.alert("Key는 숫자로 입력해주세요.");
-        }
       } else {
         axios({
           headers: {
