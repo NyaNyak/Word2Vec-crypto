@@ -115,9 +115,6 @@ function Encrypt() {
       } else if (kor.test(text)) {
         window.alert("영문으로 입력해주세요.");
         setOutput("");
-      } else if (invalid.test(text)) {
-        window.alert("특수문자와 숫자를 제외하고 입력해주세요.");
-        setOutput("");
       } else {
         setOutput("loading...");
         axios({

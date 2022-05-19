@@ -59,7 +59,7 @@
   text-align: left;
 }
 .modal > section > footer button {
-  margin-top: 20px;
+  margin-top: 0px;
   background-color: rgb(171, 177, 177);
   color: rgb(0, 0, 0);
   font-family: "굴림", sans-serif;
