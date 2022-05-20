@@ -120,6 +120,7 @@ function Decrpyt() {
   const { id, setId } = context;
   const { state, setState } = context;
   const onClick = (event) => {
+    let port = process.env.SERVER_PORT;
     try {
       event.preventDefault();
       if (text2 == "" || id == "") {
@@ -135,14 +136,14 @@ function Decrpyt() {
           headers: {
             "Content-Type": `application/json`,
           },
-          url: "http://127.0.0.1:5002/decrypt",
+          url: `http://127.0.0.1:${port}/decrypt`,
           method: "post",
           data: {
             id: id,
             de: text2,
           },
           proxy: {
-            host: "http://127.0.0.1:5002",
+            host: `http://127.0.0.1:${port}`,
             port: 443,
           },
         }).then(function (response) {
