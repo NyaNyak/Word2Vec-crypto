@@ -47,12 +47,16 @@
 > 개발에 사용한 오픈소스 패키지 목록은 다음과 같습니다.
 
 ```
-- npm
+- [npm](https://www.npmjs.com/)
 - react
 - scikit-learn
 - spacy
 - flask, flask_cors
+- re
 - json
+- styled-components
+- axios
+- react-router-dom
 ```
 
 > 자세한 dependencies 정보는 [여기](https://github.com/NyaNyak/Word2Vec-crypto/network/dependencies)에서 확인 가능합니다.
