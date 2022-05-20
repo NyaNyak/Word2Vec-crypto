@@ -62,8 +62,8 @@
 
 > 아래는 프로젝트를 개발하면서 코드 인용 및 참고한 사이트 입니다.
 
-- [티스토리 정구리의 우주정복](https://j-ungry.tistory.com/180?category=894695)
+- [servetgulnaroglu/ytb_matrix_js](https://github.com/servetgulnaroglu/ytb_matrix_js)
 
 ```
-욕설 필터링 기능을 구현하면서 코드 인용 및 참고한 글입니다.
+사이트의 극적인 배경 연출을 위해, 코드를 프로젝트 환경에 맞게 적용하.
 ```
