@@ -1,1 +1,0 @@
-web: gunicorn -b :$SERVER_PORT back:app

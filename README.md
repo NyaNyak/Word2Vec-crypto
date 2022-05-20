@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Word2Vec을 이용한 암호화 웹사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 참여자
 
-## Available Scripts
+| 학과         | 학번     | 이름   | 역할분담                                        |
+| ------------ | -------- | ------ | ----------------------------------------------- |
+| 컴퓨터공학과 | 18101229 | 신현규 | Python 기반 DB 및 서버 구현, 암호 알고리즘 구현 |
+| 컴퓨터공학과 | 18101281 | 최해솔 | 프로젝트 기획, 디자인, React 기반 프론트 개발   |
 
-In the project directory, you can run:
+## 프로젝트 설명
 
-### `npm start`
+지난 한 학기동안 자연어처리 강의를 들으며 배운 것을 어떻게 적용할 수 있을까 고민을 많이 했습니다.
+저희가 떠올린 것은 **시저 암호**입니다. 이 암호는 주어진 문자열의 각 문자를 어떤 key값만큼 옮기는 간단한 치환 암호입니다. 하지만 영어에서 쓰이는 알파벳들의 빈도 수를 이용하면 고정된 key값으로 구현된 시저 암호는 쉽게 복호화가 가능합니다.
+이를 해결하기 위해 어떤 단어를 key값으로 이용해 변동적인 key값을 사용하는 **비게네르 암호**도 존재하지만, 저희는 대신에 Word2Vec과 Cosine Similarity를 이용해 key값을 구현해보기로 했습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+본 프로젝트는 다음 사항들이 구현되어 있습니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 프로젝트 실행 시 데이터베이스가 초기화됩니다. 서버는 flask를 기반으로 실행되며 이 데이터베이스에 값을 저장하고 읽어옵니다.
 
-### `npm test`
+- 입력으로 주어진 문자열의 알파벳 대소문자를 구현된 암호 알고리즘을 이용해 암호화하고, 고유한 key값과 암호문을 반환합니다. (암호화에 사용되는 key값이 아닌, 반환된 암호문에 대한 key값입니다.)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- key값과 암호문 쌍이 올바를 경우 복호화 후 원문을 반환합니다.
 
-### `npm run build`
+- 암호화 알고리즘의 원리는 다음과 같습니다.
+  -- 알파벳 문자열이 주어지면 공백으로 구분한 단어의 개수를 분석합니다.
+  -- **spacy**의 **en_core_web_lg**을 기반으로 각 단어의 벡터를 구합니다.
+  -- 문자열을 순회하며 이웃한 단어의 Cosine Similarity를 계산한 후 100을 곱해 정수 부분을 구합니다. 이는 각 단어의 key값이 됩니다. 맨 끝 단어의 경우 앞에서 구한 key값들의 합을 적용합니다.
+  -- 이를 그대로 사용하는 경우 spacy만 있다면 누구나 해독이 가능하기 때문에, 추가로 난수를 더해줍니다.
+  -- 위의 과정을 거쳐 구해진 key값이 0인 경우 0 대신 난수값을 적용합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 데이터베이스에는 원문을 저장하지 않습니다. 대신 사용자에게 반환하는 key값과 암호문만을 저장하고 복호화 시 입력되는 key - 암호문 쌍이 데이터베이스에 저장된 값과 일치하는 경우 복호화를 수행해 원문을 돌려줍니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 프로젝트 실행 방법
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Github에서 clone하여 로컬에서 실행해볼 수 있습니다.
 
-### `npm run eject`
+## 프로젝트 실행 결과 예시
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 그 외 정보 <a id = "info"><a/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> 개발에 사용한 패키지 목록은 다음과 같습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+- scikit-learn
+- spacy
+- flask, flask_cors
+- json
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> 이 프로젝트는 MIT 라이선스로 배포되며 상세한 라이선스 정보는 LICENSE 에서 확인할 수 있습니다.
 
-## Learn More
+> 아래는 프로젝트를 개발하면서 코드 일부 인용 및 참고한 사이트 입니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [티스토리 정구리의 우주정복](https://j-ungry.tistory.com/180?category=894695)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+욕설 필터링 기능을 구현하면서 코드 인용 및 참고한 글입니다.
+```

@@ -108,7 +108,6 @@ function Encrypt() {
   const { id, setId } = context;
 
   const onClick = (event) => {
-    let port = process.env.SERVER_PORT;
     try {
       event.preventDefault();
       if (text == "") {
@@ -122,13 +121,13 @@ function Encrypt() {
           headers: {
             "Content-Type": `application/json`,
           },
-          url: `http://127.0.0.1:${port}/encrypt`,
+          url: `http://127.0.0.1:5002/encrypt`,
           method: "post",
           data: {
             text: text,
           },
           proxy: {
-            host: `http://127.0.0.1:${port}`,
+            host: `http://127.0.0.1:5002`,
             port: 443,
           },
         }).then(function (response) {
