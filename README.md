@@ -65,5 +65,5 @@
 - [servetgulnaroglu/ytb_matrix_js](https://github.com/servetgulnaroglu/ytb_matrix_js)
 
 ```
-사이트의 극적인 배경 연출을 위해, 코드를 프로젝트 환경에 맞게 적용하.
+사이트의 극적인 배경 연출을 위해, 코드를 프로젝트 환경에 맞게 적용하였습니다.
 ```
