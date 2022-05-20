@@ -44,7 +44,7 @@
 
 - 프로젝트 실행 데모 영상입니다. 
 
-[![Video Label](http://img.youtube.com/vi/ERaSdrAOWBc/1.jpg)](https://youtu.be/ERaSdrAOWBc=0s)
+[![Video Label](http://img.youtube.com/vi/ERaSdrAOWBc/0.jpg)](https://youtu.be/ERaSdrAOWBc=3s)
 
 ## 참조 <a id = "info"><a/>
 
