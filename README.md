@@ -40,6 +40,8 @@
 
 - 실행 시 초기 화면은 아래 이미지와 같습니다.
 
+<img src="https://user-images.githubusercontent.com/81071456/169521370-b8507b23-3083-4072-a092-1cfba713eaa5.PNG"/>
+
 - 실제 프로젝트 시연 영상입니다. 
 
 ## 그 외 정보 <a id = "info"><a/>
