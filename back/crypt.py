@@ -2,6 +2,7 @@ import spacy
 import random as r
 from sklearn.metrics.pairwise import cosine_similarity as f
 
+# 최초 실행시 아래 코드를 포함해 실행 후 다시 주석처리 요망
 # spacy.cli.download('en_core_web_lg')
 
 def crypt(string):
