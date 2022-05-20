@@ -101,7 +101,6 @@ function Encrypt() {
   const navigate = useNavigate();
   const kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const invalid = /[0-9!?@#$%^&*():;+-=~{}<>\_\[\]\|\\\"\'\,\.\/\`\₩]/g;
-  //const [data, setData] = useState([{}]);
   const context = useContext(UserContext);
   const { text, setText } = context;
   const { output, setOutput } = context;
@@ -133,7 +132,6 @@ function Encrypt() {
         }).then(function (response) {
           setOutput(response.data.string);
           setId(response.data.id);
-          console.log(response);
         });
         navigate("/encrypted");
       }
@@ -145,25 +143,6 @@ function Encrypt() {
   const onContentChange = (event) => {
     setText(event.currentTarget.value);
   };
-  console.log(text);
-  console.log(output);
-  console.log(kor.test(text));
-
-  /*
-  useEffect(() => {
-    fetch("http://localhost:5002/encrypt", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
-  }, []);
-  */
   return (
     <Container>
       <Top>
@@ -172,12 +151,7 @@ function Encrypt() {
       </Top>
 
       <Title>ENCRYPT</Title>
-      <Form
-        /*action="http://localhost:5002/encrypt"
-        method="post"
-        target="param"*/
-        onSubmit={onClick}
-      >
+      <Form onSubmit={onClick}>
         <Text
           color="green"
           placeholder="INPUT TEXT"

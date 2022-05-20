@@ -150,7 +150,6 @@ function Decrpyt() {
             setOutput(response.data.message);
           } else {
             setOutput(response.data.string);
-            console.log(response);
           }
         });
         navigate("/decrypted");

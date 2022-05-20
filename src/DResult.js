@@ -87,28 +87,6 @@ function DResult() {
   const { text2, setText2 } = context;
   const { output, setOutput } = context;
   const { id, setId } = context;
-  /*
-  useEffect(() => {
-    axios({
-      headers: {
-        "Content-Type": `application/json`,
-      },
-      url: "http://127.0.0.1:5002/decrypt",
-      method: "post",
-      data: {
-        id: id,
-        de: text2,
-      },
-      proxy: {
-        host: "http://127.0.0.1:5002",
-        port: 443,
-      },
-    }).then(function (response) {
-      setOutput(response.data.string);
-      console.log(response);
-    });
-  }, []);
-*/
   const onClick = () => {
     window.location.replace("/");
   };
