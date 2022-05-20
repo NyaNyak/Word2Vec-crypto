@@ -42,7 +42,8 @@
 
 <img src="https://user-images.githubusercontent.com/81071456/169521370-b8507b23-3083-4072-a092-1cfba713eaa5.PNG" width="700" height="450"/>
 
-- 실제 프로젝트 시연 영상입니다. 
+- 프로젝트 실행 데모 영상입니다. 
+[![Video Label](http://img.youtube.com/vi/ERaSdrAOWBc/3.jpg)](https://youtu.be/ERaSdrAOWBc=0s)
 
 ## 참조 <a id = "info"><a/>
 
