@@ -47,15 +47,14 @@
 > 개발에 사용한 오픈소스 패키지 목록은 다음과 같습니다.
 
 - [npm](https://www.npmjs.com/)
-- react
-- scikit-learn
-- spacy
-- flask, flask_cors
-- re
-- json
-- styled-components
-- axios
-- react-router-dom
+- [react](https://ko.reactjs.org/)
+- [scikit-learn](https://scikit-learn.org/stable/)
+- [spacy](https://spacy.io/)
+- [flask](https://flask.palletsprojects.com/en/2.1.x/), [flask_cors](https://flask-cors.readthedocs.io/en/latest/)
+- [json](https://www.json.org/json-en.html)
+- [styled-components](https://styled-components.com/)
+- [axios](https://axios-http.com/kr/docs/intro)
+- [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
 
 > 자세한 dependencies 정보는 [여기](https://github.com/NyaNyak/Word2Vec-crypto/network/dependencies)에서 확인 가능합니다.
 
