@@ -47,7 +47,7 @@
 - json
 ```
 
-> 자세한 dependencies 정보는 여기(https://github.com/NyaNyak/Word2Vec-crypto/network/dependencies)에서 확인 가능합니다.
+> 자세한 dependencies 정보는 [여기](https://github.com/NyaNyak/Word2Vec-crypto/network/dependencies)에서 확인 가능합니다.
 
 > 아래는 프로젝트를 개발하면서 코드 인용 및 참고한 사이트 입니다.
 
