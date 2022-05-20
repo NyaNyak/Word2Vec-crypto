@@ -38,7 +38,7 @@
 
 ## 그 외 정보 <a id = "info"><a/>
 
-> 개발에 사용한 패키지 목록은 다음과 같습니다.
+> 개발에 사용한 오픈소스 패키지 목록은 다음과 같습니다.
 
 ```
 - scikit-learn
@@ -47,9 +47,9 @@
 - json
 ```
 
-> 이 프로젝트는 MIT 라이선스로 배포되며 상세한 라이선스 정보는 LICENSE 에서 확인할 수 있습니다.
+> 자세한 dependencies 정보는 여기(https://github.com/NyaNyak/Word2Vec-crypto/network/dependencies)에서 확인 가능합니다.
 
-> 아래는 프로젝트를 개발하면서 코드 일부 인용 및 참고한 사이트 입니다.
+> 아래는 프로젝트를 개발하면서 코드 인용 및 참고한 사이트 입니다.
 
 - [티스토리 정구리의 우주정복](https://j-ungry.tistory.com/180?category=894695)
 
