@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./Contexts/Context";
 import axios from "axios";
@@ -145,7 +145,7 @@ function Decrpyt() {
             host: `http://127.0.0.1:5002`,
             port: 443,
           },
-        }).then(function (response) {
+        }).then(function(response) {
           if (response.data.status == 1) {
             setOutput(response.data.message);
           } else {

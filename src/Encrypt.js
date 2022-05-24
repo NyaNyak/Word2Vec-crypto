@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./Contexts/Context";
 import { Link } from "react-router-dom";
@@ -129,7 +129,7 @@ function Encrypt() {
             host: `http://127.0.0.1:5002`,
             port: 443,
           },
-        }).then(function (response) {
+        }).then(function(response) {
           setOutput(response.data.string);
           setId(response.data.id);
         });

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import React from "react";
 import HowToUse from "./HowTo";
 import Encrypt from "./Encrypt";
 import Decrpyt from "./Decrypt";
