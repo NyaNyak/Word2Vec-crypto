@@ -1,5 +1,5 @@
 {
-  "name": "word2vec-crypto",
+  "name": "caesar-ext",
   "version": "0.1.0",
   "homepage": ".",
   "private": true,
@@ -14,7 +14,7 @@
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
@@ -22,8 +22,7 @@
     "start": "concurrently \"python ./back/app.py\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-prebuild": "npm install --dev"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
